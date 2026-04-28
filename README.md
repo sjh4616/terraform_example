@@ -1,3 +1,3 @@
 # terraform_example
 
-aws-test
+Terraform 연습용 리포지터리
