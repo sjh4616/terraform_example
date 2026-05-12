@@ -2,6 +2,11 @@ resource "aws_instance" "aws00_jenkins_server" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   key_name               = var.key_name
+    root_block_device {
+    volume_size = 25
+    volume_type = "gp3"
+    delete_on_termination = true # 인스턴스 삭제 시 볼륨도 삭제
+  }
   
   # network 모듈에서 생성한 NAT 게이트웨이와 연결된 Private Subnet 1번 사용
   subnet_id              = data.aws_subnets.aws00_private_subnets.ids[0]
