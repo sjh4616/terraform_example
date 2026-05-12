@@ -1,5 +1,3 @@
-# aws_infra/alb/data.tf
-
 data "aws_vpc" "aws00_vpc" {
   filter {
     name   = "tag:Name"

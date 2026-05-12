@@ -1,4 +1,3 @@
-# aws_infra/ec2/main.tf
 # 1. 원본 instance 생성
 resource "aws_instance" "aws00_instance" {
   ami                         = var.ami_id

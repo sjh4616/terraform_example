@@ -1,5 +1,3 @@
-# aws_infra/alb/main.tf
-
 # 로드밸런스 생성
 resource "aws_lb" "aws00_alb" {
   name               = "${var.prefix}-alb"
