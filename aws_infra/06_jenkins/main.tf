@@ -2,7 +2,7 @@ resource "aws_instance" "aws00_jenkins_server" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   key_name               = var.key_name
-    root_block_device {
+  root_block_device {
     volume_size = 25
     volume_type = "gp3"
     delete_on_termination = true # 인스턴스 삭제 시 볼륨도 삭제
@@ -27,6 +27,8 @@ resource "aws_instance" "aws00_jenkins_server" {
               # NAT 게이트웨이를 통해 외부와 통신하여 SSM 에이전트 활성화
               sudo systemctl enable amazon-ssm-agent
               sudo systemctl start amazon-ssm-agent
+
+              sudo apt install -y zip
 
               # 1. 호스트 OS용 Docker 설치
               ${file("${path.module}/user_data/install-docker.sh")}
